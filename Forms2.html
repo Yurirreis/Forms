@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>frmDados</title>
+    <script type="text/javascript">
+        function processa() {
+            var Pontuario, nome, email, Ingressão, Períodos, estensão, nivsatis, lstCursos;
+
+            Pontuario = document.forms["scriptdocurrículo"].txtpont.value;
+            nivsatis = document.forms["scriptdocurrículo"].nivsatis.value;
+            nome = document.forms["scriptdocurrículo"].txtNome.value;
+            email = document.forms["scriptdocurrículo"].txtEmail.value;
+            lstCursos = document.forms["scriptdocurrículo"].lstCursos.value;
+            Ingressão = document.forms["scriptdocurrículo"].txtNasc.value;
+            Períodos = document.querySelector("input[name='radturno']:checked").value;
+            estensão = "";
+            estensão += (document.forms["scriptdocurrículo"].Extensão1.checked ? document.forms["scriptdocurrículo"].Extensão1.value : "");
+            estensão += (document.forms["scriptdocurrículo"].Extensão2.checked ? ", " + document.forms["scriptdocurrículo"].Extensão2.value : "");
+            estensão += (document.forms["scriptdocurrículo"].Extensão3.checked ? ", " + document.forms["scriptdocurrículo"].Extensão3.value : ""); 
+            
+            document.write("<img src='imagens/IFSP.WEBP' width='200px' height='50px'><br>");
+            document.write("<font color='" + nivsatis + "''>");
+            document.write("Pontuario: " + Pontuario + "<br>");
+            document.write("Nome: " + nome + "<br>");
+            document.write("E-mail: " + email + "<br>");
+            document.write("Data de Ingressão: " + Ingressão + "<br>");
+            document.write("Períodos: " + Períodos + "<br>");
+            document.write("Cursos: " + lstCursos + "<br>");
+            document.write("Atividades de Extensão: " + estensão + "<br>");
+            document.write("Nível de satisfação: " + nivsatis + "<br>");
+            document.write("</font>");
+        }
+    </script>
+</head>
+<body>
+    <img src='imagens/IFSP.WEBP' width='200px' height='50px'><br>
+    <form name="scriptdocurrículo">
+        Pontuario : <input type="text" name="txtpont" value="Informe seu Pontuario">
+        Satisfação: <input type="range" name="nivsatis" min="0" max="100"><br>
+        Nome: <input type="text" name="txtNome" value="Informe seu nome"><br>
+        E-mail Institucional: <input type="email" name="txtEmail" value="informe seu e-mail institucional"><br>
+        Cursos:
+        <select name="lstCursos">
+            <option value="CTA">Técnico em Automação Industrial</option>
+            <option value="CTI">Técnico em Informática</option>
+            <option value="CTE">Técnico em Eventos</option>
+            <option value="EJD">Educação de Jovem e Adultos</option>
+            <option value="CSA">Tecnologia em Automação Industrial</option>
+            <option value="TUR">Tecnologia em Gestão de Turismo</option>
+            <option value="ADS">Tecnologia em Análise e Desenvolvimento de Sistemas</option>
+            <option value="LET">Licenciatura em Letras - Português </option>
+            <option value="LMA">Licenciatura em Matemática</option>
+            <option value="ECA">Engenharia de Controle e Automação Industrial</option>
+            <option value="TUR">Bacharelado em Turismo</option>
+        </select>
+        Ingressão: <input type="date" name="txtNasc"><br>
+        Períodos:
+        <input type="radio" name="radturno" value="Matutino" checked>Matutino
+        <input type="radio" name="radturno" value="Vespertino"> Vespertino
+        <input type="radio" name="radturno" value="Noturno"> Noturno<br>
+        Atividades de Extensão:<br>
+        <input type="checkbox" name="Extensão1" value="Músicas">Músicas<br>
+        <input type="checkbox" name="Extensão2" value="pintura">Pintura<br>
+        <input type="checkbox" name="Extensão3" value="teatro">Teatro<br>
+        <input type="button" value="OK" onclick="processa();">
+        <input type="reset" value="Limpar"><br>
+    </form>
+</body>
+</html>
+
+
